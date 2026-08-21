@@ -6,6 +6,18 @@ import { SearchIcon, CloseIcon, ArrowUpRight } from "./icons";
 
 const ROTATING = ["build", "sell", "ship", "create", "automate", "research"];
 
+// Popular categories surfaced as quick-jump chips in the hero.
+const FEATURED_IDS = [
+  "llm-chat",
+  "automation",
+  "image-video",
+  "app-builders",
+  "coding-assistants",
+  "voice-agents",
+  "meeting-notes",
+  "presentations",
+];
+
 function useReducedMotion() {
   const [reduced, setReduced] = useState(false);
   useEffect(() => {
@@ -79,6 +91,7 @@ export function Hero({
 }: HeroProps) {
   const localRef = useRef<HTMLInputElement>(null);
   const marqueeItems = [...categories, ...categories];
+  const featured = categories.filter((c) => FEATURED_IDS.includes(c.id));
 
   return (
     <header className="relative overflow-hidden border-b border-dark-border">
@@ -143,6 +156,22 @@ export function Hero({
                   </button>
                 )}
               </label>
+            </div>
+
+            {/* Quick jump */}
+            <div className="mt-8">
+              <p className="eyebrow mb-3 text-stone">Jump to</p>
+              <div className="flex flex-wrap gap-2">
+                {featured.map((c) => (
+                  <a
+                    key={c.id}
+                    href={`#${c.id}`}
+                    className="rounded border border-dark-border px-3 py-1.5 text-[13px] text-soft-white/80 transition-colors hover:border-amethyst/60 hover:text-bone"
+                  >
+                    {c.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
