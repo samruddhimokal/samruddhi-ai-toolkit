@@ -12,7 +12,7 @@ export const tools: Tool[] = [
 
   // ── LLM Chat & Assistants ─────────────────────────────────────────────
   { name: "ChatGPT", url: "https://chatgpt.com", category: "llm-chat", added: true, blurb: "OpenAI's assistant. The default starting point." },
-  { name: "Claude", url: "https://claude.ai", category: "llm-chat", favorite: true, added: true, blurb: "Anthropic's assistant. Strong reasoning and writing." },
+  { name: "Claude", url: "https://claude.ai", category: "llm-chat", favorite: true, blurb: "Anthropic's assistant. Strong reasoning and writing." },
   { name: "Gemini", url: "https://gemini.google.com", category: "llm-chat", added: true, blurb: "Google's multimodal model family." },
   { name: "Grok", url: "https://grok.com", category: "llm-chat", added: true, blurb: "xAI's assistant wired into real-time X." },
 

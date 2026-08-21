@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/data/categories";
-import { SearchIcon, CloseIcon } from "./icons";
+import { SearchIcon, CloseIcon, ArrowUpRight } from "./icons";
 
 const ROTATING = ["build", "sell", "ship", "create", "automate", "research"];
 
@@ -83,7 +83,18 @@ export function Hero({
   return (
     <header className="relative overflow-hidden border-b border-dark-border">
       <div className="mx-auto max-w-shell px-6 pt-24 pb-14 md:pt-32">
-        <p className="eyebrow text-dusk">A personal guide by Samruddhi Mokal</p>
+        <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+          <span className="eyebrow text-dusk">A personal guide by</span>
+          <a
+            href="https://www.linkedin.com/in/samruddhi-mokal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-1.5 font-serif text-[19px] tracking-[-0.01em] text-soft-white transition-colors hover:text-amethyst"
+          >
+            Samruddhi Mokal
+            <ArrowUpRight className="h-3.5 w-3.5 text-stone transition-colors group-hover:text-amethyst" />
+          </a>
+        </div>
 
         <h1 className="mt-6 max-w-4xl font-serif text-[40px] font-normal leading-[1.05] tracking-[-0.02em] text-bone sm:text-[56px] md:text-[72px]">
           The AI tools I actually
