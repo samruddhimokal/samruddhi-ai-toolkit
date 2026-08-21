@@ -133,9 +133,11 @@ export function Directory() {
       {/* ── Sticky top bar ──────────────────────────────────────── */}
       <div className="sticky top-0 z-50 border-b border-dark-border bg-obsidian">
         <div className="mx-auto flex h-14 max-w-shell items-center gap-4 px-6">
-          <a href="#top" className="shrink-0 font-serif text-[18px] tracking-[-0.01em]">
-            <span className="text-bone">Samruddhi</span>
-            <span className="text-amethyst"> Mokal</span>
+          <a
+            href="#top"
+            className="eyebrow tracking-[0.14em] text-stone transition-colors hover:text-soft-white"
+          >
+            The AI Toolkit
           </a>
 
           <button
