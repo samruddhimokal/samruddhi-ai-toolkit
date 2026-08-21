@@ -8,7 +8,7 @@ import { Hero } from "./Hero";
 import { ToolCard } from "./ToolCard";
 import { CommandPalette } from "./CommandPalette";
 import { ToolModal } from "./ToolModal";
-import { SearchIcon, StarIcon } from "./icons";
+import { StarIcon } from "./icons";
 
 const categoryLabel = (id: CategoryId) =>
   categories.find((c) => c.id === id)?.label ?? "";
@@ -137,15 +137,6 @@ export function Directory() {
             <span className="text-bone">Samruddhi</span>
             <span className="text-amethyst"> Mokal</span>
           </a>
-
-          <button
-            onClick={() => setPaletteOpen(true)}
-            className="group ml-2 flex flex-1 items-center gap-2 rounded border border-dark-border bg-panel px-3 py-1.5 text-left text-[13px] text-stone transition-colors hover:border-stone/50 sm:max-w-xs"
-          >
-            <SearchIcon className="h-4 w-4" />
-            <span className="flex-1">Search tools</span>
-            <kbd className="hidden sm:inline">⌘K</kbd>
-          </button>
 
           <button
             onClick={() => setFavoritesOnly((v) => !v)}
