@@ -85,11 +85,11 @@ export function CommandPalette({
       aria-label="Search tools"
     >
       <div
-        className="absolute inset-0 bg-obsidian/80"
+        className="scrim-in absolute inset-0 bg-obsidian/92"
         onClick={onClose}
         aria-hidden="true"
       />
-      <div className="relative w-full max-w-xl overflow-hidden rounded-lg border border-dark-border bg-panel">
+      <div className="dialog-in relative w-full max-w-xl overflow-hidden rounded-lg border border-white/12 bg-[color:var(--elevated)]">
         <div className="flex items-center gap-3 border-b border-dark-border px-4">
           <SearchIcon className="h-[18px] w-[18px] shrink-0 text-stone" />
           <input

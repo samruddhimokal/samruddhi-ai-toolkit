@@ -150,7 +150,7 @@ export function Hero({
           <span className="h-8 w-px bg-dark-border" aria-hidden="true" />
           <Stat value={categoryCount} label="categories" />
           <span className="h-8 w-px bg-dark-border" aria-hidden="true" />
-          <Stat value={favoriteCount} label="I use daily" accent />
+          <Stat value={favoriteCount} label="favorites" accent />
         </div>
 
         {/* Press / recognition */}
