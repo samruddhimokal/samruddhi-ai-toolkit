@@ -19,7 +19,7 @@ const inter = Inter({
 
 const siteTitle = "The AI Toolkit — Curated by Samruddhi Mokal";
 const siteDescription =
-  "The AI tools I train orchestrators with. A curated, categorized directory of the tools that actually earn their place. By Samruddhi Mokal, Pace Labz.";
+  "A living directory of 125+ AI tools worth your time, across 31 categories. Curated, not scraped, by Samruddhi Mokal of Pace Labz. Search, filter, and find your stack.";
 
 export const metadata: Metadata = {
   title: siteTitle,

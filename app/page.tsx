@@ -1,13 +1,11 @@
-import { Hero } from "@/components/Hero";
-import { Toolkit } from "@/components/Toolkit";
+import { Directory } from "@/components/Directory";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div id="top">
-      <Hero />
-      <Toolkit />
+    <>
+      <Directory />
       <Footer />
-    </div>
+    </>
   );
 }

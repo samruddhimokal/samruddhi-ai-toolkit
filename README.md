@@ -58,11 +58,20 @@ Everything lives in two files. No code changes needed to update the guide.
 
 Colors, typography (Fraunces + Inter), and layout follow the Pace Labz brand system v2. Brand tokens are defined in `tailwind.config.ts` and `app/globals.css`.
 
+## Interactions
+
+- **Search**: the hero search bar filters live; the sticky top bar mirrors it.
+- **Command palette**: press `⌘K` / `Ctrl+K` or `/` anywhere to jump to any tool (arrow keys + Enter to open).
+- **Category sidebar** (desktop): scrollspy highlights the section you're in; click to jump. On mobile it becomes a horizontal rail.
+- **"I use this" toggle**: filters to Samruddhi's personally-used tools.
+- Motion (scroll reveals, counters, marquee, rotating word) respects `prefers-reduced-motion`.
+
 ## Structure
 
 ```
-app/            layout, page, global styles
-components/      Hero, Toolkit (search + filter), ToolCard, Footer, icons
+app/            layout, page, global styles (dark theme + motion)
+components/      Directory (layout + state), Hero, ToolCard,
+                 CommandPalette (⌘K / "/"), Footer, icons
 data/           tools.ts (catalog), categories.ts (sections)
 lib/            types.ts
 ```

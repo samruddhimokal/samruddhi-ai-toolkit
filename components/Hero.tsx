@@ -1,58 +1,190 @@
-import { tools } from "@/data/tools";
-import { categories } from "@/data/categories";
-import { StarIcon } from "./icons";
+"use client";
 
-export function Hero() {
-  const toolCount = tools.length;
-  const categoryCount = categories.length;
-  const favoriteCount = tools.filter((t) => t.favorite).length;
+import { useEffect, useRef, useState } from "react";
+import { categories } from "@/data/categories";
+import { SearchIcon, CloseIcon } from "./icons";
+
+const ROTATING = ["build", "sell", "ship", "create", "automate", "research"];
+
+function useReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReduced(mq.matches);
+    const on = () => setReduced(mq.matches);
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
+  return reduced;
+}
+
+function Counter({ value }: { value: number }) {
+  const reduced = useReducedMotion();
+  const [n, setN] = useState(reduced ? value : 0);
+
+  useEffect(() => {
+    if (reduced) {
+      setN(value);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now();
+    const dur = 1100;
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - t, 3);
+      setN(Math.round(eased * value));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [value, reduced]);
+
+  return <>{n}</>;
+}
+
+function RotatingWord() {
+  const reduced = useReducedMotion();
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (reduced) return;
+    const id = setInterval(() => setI((v) => (v + 1) % ROTATING.length), 2100);
+    return () => clearInterval(id);
+  }, [reduced]);
+  return (
+    <span className="relative inline-block text-amethyst italic">
+      <span key={i} className="word-rotate">
+        {ROTATING[i]}
+      </span>
+    </span>
+  );
+}
+
+interface HeroProps {
+  query: string;
+  setQuery: (v: string) => void;
+  searchRef: React.RefObject<HTMLInputElement | null>;
+  toolCount: number;
+  categoryCount: number;
+  favoriteCount: number;
+}
+
+export function Hero({
+  query,
+  setQuery,
+  searchRef,
+  toolCount,
+  categoryCount,
+  favoriteCount,
+}: HeroProps) {
+  const localRef = useRef<HTMLInputElement>(null);
+  const marqueeItems = [...categories, ...categories];
 
   return (
-    <header className="border-b border-light-border">
-      <div className="mx-auto max-w-shell px-6 pt-24 pb-16 md:pt-32 md:pb-20">
+    <header className="relative overflow-hidden border-b border-dark-border">
+      <div className="mx-auto max-w-shell px-6 pt-24 pb-14 md:pt-32">
         <p className="eyebrow text-dusk">Samruddhi Mokal · Pace Labz</p>
 
-        <h1 className="mt-6 font-serif text-obsidian font-normal leading-[1.08] tracking-[-0.02em] text-[38px] sm:text-[52px] md:text-[64px] max-w-4xl">
-          The AI toolkit I train{" "}
-          <em className="italic text-amethyst">orchestrators</em>{" "}
-          with.
+        <h1 className="mt-6 max-w-4xl font-serif text-[40px] font-normal leading-[1.05] tracking-[-0.02em] text-bone sm:text-[56px] md:text-[72px]">
+          The AI tools I actually
+          <br className="hidden sm:block" /> use to{" "}
+          <span className="whitespace-nowrap">
+            <RotatingWord />.
+          </span>
         </h1>
 
-        <p className="mt-7 max-w-2xl text-[17px] leading-[1.7] text-stone">
-          Every tool here earns its place. These are the ones I actually use to
-          build real systems, and the ones I put in front of the teams I train.
-          Not a list I scraped. A list I run.
+        <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-stone">
+          A living directory of the tools worth your time. Curated, not scraped.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3">
-          <span className="eyebrow text-obsidian">3x Founder</span>
-          <span className="hidden sm:inline h-3 w-px bg-light-border" aria-hidden="true" />
-          <span className="eyebrow text-obsidian">Best AI Trainer Award 2025</span>
-          <span className="hidden sm:inline h-3 w-px bg-light-border" aria-hidden="true" />
-          <span className="eyebrow text-obsidian">Featured in CEO Times &amp; Leaders Magazine</span>
+        {/* Search */}
+        <div className="mt-10 max-w-2xl">
+          <label className="group relative block">
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-stone transition-colors group-focus-within:text-amethyst">
+              <SearchIcon className="h-[18px] w-[18px]" />
+            </span>
+            <input
+              ref={(el) => {
+                localRef.current = el;
+                if (searchRef) searchRef.current = el;
+              }}
+              type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={`Search ${toolCount} tools, or press /`}
+              aria-label="Search tools"
+              className="w-full rounded border border-dark-border bg-panel py-4 pl-12 pr-12 text-[16px] text-bone placeholder:text-stone focus:border-amethyst focus:bg-panel-hover"
+            />
+            {query && (
+              <button
+                onClick={() => setQuery("")}
+                aria-label="Clear search"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-stone hover:text-bone"
+              >
+                <CloseIcon />
+              </button>
+            )}
+          </label>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-stone">
-          <span className="font-serif text-obsidian text-[22px]">
-            {toolCount} tools
-          </span>
-          <span className="text-light-border" aria-hidden="true">
-            /
-          </span>
-          <span className="font-serif text-obsidian text-[22px]">
-            {categoryCount} categories
-          </span>
-          <span className="ml-auto flex items-center gap-2 text-[13px]">
-            <span className="inline-flex items-center gap-1 text-amethyst">
-              <StarIcon />
-              <span className="eyebrow text-amethyst tracking-[0.12em]">I use this</span>
+        {/* Animated stats */}
+        <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-4">
+          <Stat value={toolCount} label="tools" />
+          <span className="h-8 w-px bg-dark-border" aria-hidden="true" />
+          <Stat value={categoryCount} label="categories" />
+          <span className="h-8 w-px bg-dark-border" aria-hidden="true" />
+          <Stat value={favoriteCount} label="I use daily" accent />
+        </div>
+
+        {/* Credentials */}
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2">
+          <span className="eyebrow text-soft-white/80">3x Founder</span>
+          <span className="hidden h-3 w-px bg-dark-border sm:inline" aria-hidden="true" />
+          <span className="eyebrow text-soft-white/80">Best AI Trainer Award 2025</span>
+          <span className="hidden h-3 w-px bg-dark-border sm:inline" aria-hidden="true" />
+          <span className="eyebrow text-soft-white/80">Featured in CEO Times &amp; Leaders Magazine</span>
+        </div>
+      </div>
+
+      {/* Category marquee */}
+      <div className="marquee-mask relative border-t border-dark-border py-4">
+        <div className="marquee-track">
+          {marqueeItems.map((c, idx) => (
+            <span
+              key={`${c.id}-${idx}`}
+              className="mx-5 whitespace-nowrap text-[13px] tracking-wide text-stone"
+            >
+              {c.label}
+              <span className="ml-5 text-amethyst/50" aria-hidden="true">
+                /
+              </span>
             </span>
-            <span className="text-stone/80">
-              marks the {favoriteCount} I personally rely on
-            </span>
-          </span>
+          ))}
         </div>
       </div>
     </header>
+  );
+}
+
+function Stat({
+  value,
+  label,
+  accent = false,
+}: {
+  value: number;
+  label: string;
+  accent?: boolean;
+}) {
+  return (
+    <div className="flex items-baseline gap-2">
+      <span
+        className={`font-serif text-[34px] leading-none tracking-[-0.02em] ${
+          accent ? "text-amethyst" : "text-bone"
+        }`}
+      >
+        <Counter value={value} />
+      </span>
+      <span className="text-[13px] text-stone">{label}</span>
+    </div>
   );
 }
