@@ -2,24 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/data/categories";
-import { SearchIcon, CloseIcon, ArrowUpRight } from "./icons";
+import { SearchIcon, CloseIcon } from "./icons";
 
 const ROTATING = ["build", "sell", "ship", "create", "automate", "research"];
-
-const PRESS = [
-  {
-    label: "Best Practical AI Training 2025",
-    href: "https://evergreenawards.com/awards/pace-labz-best-practical-ai-training-for-business-leaders-in-the-u-s-of-2025",
-  },
-  {
-    label: "CEO Times",
-    href: "https://ceotimes.com/why-brilliant-professionals-are-getting-left-behind-by-ai-and-one-founders-mission-to-change-that/",
-  },
-  {
-    label: "Leadr Magazine",
-    href: "https://leadrmagazine.com/empowering-professionals-with-ai-how-samruddhi-mokal-is-turning-overwhelming-technology-into-business-power/",
-  },
-];
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -153,24 +138,6 @@ export function Hero({
           <Stat value={favoriteCount} label="favorites" accent />
         </div>
 
-        {/* Press / recognition */}
-        <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-          <span className="eyebrow text-stone">Featured in</span>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            {PRESS.map((p) => (
-              <a
-                key={p.label}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-[14px] text-soft-white/85 transition-colors hover:text-bone"
-              >
-                {p.label}
-                <ArrowUpRight className="h-3.5 w-3.5 text-stone transition-colors group-hover:text-amethyst" />
-              </a>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Category marquee */}
