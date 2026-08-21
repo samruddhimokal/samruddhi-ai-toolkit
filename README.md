@@ -53,6 +53,7 @@ Everything lives in two files. No code changes needed to update the guide.
   - `added: true` shows the **"Added"** tag (curated additions beyond the original list).
   - `blurb` is the one-liner shown on the card. Keep it short and specific.
 - **`data/categories.ts`** — the category list, their order on the page, and each section's one-line description. To add a new category, add an entry here and a matching `id` in `lib/types.ts`.
+- **`data/toolDetails.ts`** — the rich content shown in each tool's detail card (description, bestFor, pricing, pros, cons, take), keyed by the exact tool name. Edit any field freely; missing tools fall back to the card blurb.
 
 ## Brand
 
@@ -60,8 +61,9 @@ Colors, typography (Fraunces + Inter), and layout follow the Pace Labz brand sys
 
 ## Interactions
 
+- **Detail cards**: clicking a tool opens a modal with what it is, best-for, pricing, strengths, watch-outs, a one-line take, and the visit link.
 - **Search**: the hero search bar filters live; the sticky top bar mirrors it.
-- **Command palette**: press `⌘K` / `Ctrl+K` or `/` anywhere to jump to any tool (arrow keys + Enter to open).
+- **Command palette**: press `⌘K` / `Ctrl+K` or `/` anywhere to jump to any tool (arrow keys + Enter to open its detail card).
 - **Category sidebar** (desktop): scrollspy highlights the section you're in; click to jump. On mobile it becomes a horizontal rail.
 - **"I use this" toggle**: filters to Samruddhi's personally-used tools.
 - Motion (scroll reveals, counters, marquee, rotating word) respects `prefers-reduced-motion`.

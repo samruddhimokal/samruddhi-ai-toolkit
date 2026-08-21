@@ -17,7 +17,7 @@ export const tools: Tool[] = [
   { name: "Grok", url: "https://grok.com", category: "llm-chat", added: true, blurb: "xAI's assistant wired into real-time X." },
 
   // ── Model Access & Infrastructure ─────────────────────────────────────
-  { name: "OpenRouter", url: "https://openrouter.ai", category: "model-infra", favorite: true, blurb: "One API for every major model." },
+  { name: "OpenRouter", url: "https://openrouter.ai", category: "model-infra", blurb: "One API for every major model." },
   { name: "Fal.ai", url: "https://fal.ai", category: "model-infra", blurb: "Fast generative media inference for developers." },
   { name: "Higgsfield", url: "https://higgsfield.ai", category: "model-infra", blurb: "Cinematic AI video and camera control." },
   { name: "Groq", url: "https://groq.com", category: "model-infra", added: true, blurb: "Inference at very low latency." },
@@ -47,7 +47,7 @@ export const tools: Tool[] = [
 
   // ── Voice AI Agents & Telephony ───────────────────────────────────────
   { name: "Retell AI", url: "https://www.retellai.com", category: "voice-agents", blurb: "Build phone agents that sound human." },
-  { name: "Vapi", url: "https://vapi.ai", category: "voice-agents", favorite: true, blurb: "Developer platform for voice agents." },
+  { name: "Vapi", url: "https://vapi.ai", category: "voice-agents", blurb: "Developer platform for voice agents." },
   { name: "Bolna", url: "https://www.bolna.ai", category: "voice-agents", blurb: "Voice agents for Indian languages." },
   { name: "Sarvam", url: "https://www.sarvam.ai", category: "voice-agents", blurb: "India-first models and voice stack." },
   { name: "Vobiz", url: "https://www.vobiz.ai", category: "voice-agents", blurb: "SIP trunking and voice API for AI." },
@@ -78,10 +78,10 @@ export const tools: Tool[] = [
   { name: "GitHub Copilot", url: "https://github.com/features/copilot", category: "coding-assistants", added: true, blurb: "Inline completions inside your editor." },
 
   // ── Local & Open-Source Models ────────────────────────────────────────
-  { name: "Ollama", url: "https://ollama.com", category: "local-models", favorite: true, blurb: "Run open models locally in one command." },
+  { name: "Ollama", url: "https://ollama.com", category: "local-models", blurb: "Run open models locally in one command." },
   { name: "Msty", url: "https://msty.app", category: "local-models", blurb: "Clean desktop app for local LLMs." },
   { name: "LM Studio", url: "https://lmstudio.ai", category: "local-models", blurb: "Discover and run models on your machine." },
-  { name: "Hugging Face", url: "https://huggingface.co", category: "local-models", favorite: true, blurb: "The home of open models and datasets." },
+  { name: "Hugging Face", url: "https://huggingface.co", category: "local-models", blurb: "The home of open models and datasets." },
 
   // ── Sales Intelligence & Enrichment ───────────────────────────────────
   { name: "Apollo", url: "https://www.apollo.io", category: "sales-intel", favorite: true, blurb: "Contact data and outbound in one place." },
@@ -109,16 +109,16 @@ export const tools: Tool[] = [
 
   // ── Whiteboarding & Diagramming ───────────────────────────────────────
   { name: "Miro", url: "https://miro.com", category: "whiteboarding", blurb: "The infinite canvas for teams." },
-  { name: "Excalidraw", url: "https://excalidraw.com", category: "whiteboarding", favorite: true, blurb: "Hand-drawn diagrams, open and free." },
+  { name: "Excalidraw", url: "https://excalidraw.com", category: "whiteboarding", blurb: "Hand-drawn diagrams, open and free." },
 
   // ── Backend, Database & Vector ────────────────────────────────────────
-  { name: "Supabase", url: "https://supabase.com", category: "backend-db", favorite: true, blurb: "Postgres backend with auth and storage." },
+  { name: "Supabase", url: "https://supabase.com", category: "backend-db", blurb: "Postgres backend with auth and storage." },
   { name: "Firebase", url: "https://firebase.google.com", category: "backend-db", blurb: "Google's app backend platform." },
   { name: "Pinecone", url: "https://www.pinecone.io", category: "backend-db", blurb: "Vector database for retrieval." },
   { name: "Notion", url: "https://www.notion.so", category: "backend-db", favorite: true, blurb: "Docs, databases, and wiki in one." },
 
   // ── Payments ──────────────────────────────────────────────────────────
-  { name: "Stripe", url: "https://stripe.com", category: "payments", favorite: true, blurb: "Payments infrastructure for the internet." },
+  { name: "Stripe", url: "https://stripe.com", category: "payments", blurb: "Payments infrastructure for the internet." },
   { name: "Razorpay", url: "https://razorpay.com", category: "payments", blurb: "Payments and banking built for India." },
   { name: "PayPal", url: "https://www.paypal.com", category: "payments", blurb: "Global payments people already trust." },
 
@@ -142,7 +142,7 @@ export const tools: Tool[] = [
   { name: "Gandalf AI", url: "https://gandalf.lakera.ai", category: "ai-security", blurb: "Learn prompt injection by playing." },
   { name: "CodeAnt AI", url: "https://www.codeant.ai", category: "ai-security", blurb: "AI code review, security, and quality." },
   { name: "Lakera AI", url: "https://www.lakera.ai", category: "ai-security", blurb: "Runtime security for AI applications." },
-  { name: "CodeRabbit", url: "https://www.coderabbit.ai", category: "ai-security", favorite: true, blurb: "AI reviewer on every pull request." },
+  { name: "CodeRabbit", url: "https://www.coderabbit.ai", category: "ai-security", blurb: "AI reviewer on every pull request." },
   { name: "Canary", url: "https://www.runcanary.ai", category: "ai-security", blurb: "AI writes the code. Canary breaks it." },
 
   // ── AI Memory ─────────────────────────────────────────────────────────
@@ -154,7 +154,7 @@ export const tools: Tool[] = [
   { name: "Harvey AI", url: "https://www.harvey.ai", category: "vertical-ai", blurb: "AI built for legal work." },
 
   // ── Communities & Discovery ───────────────────────────────────────────
-  { name: "Product Hunt", url: "https://www.producthunt.com", category: "communities", favorite: true, blurb: "New products launch here first." },
+  { name: "Product Hunt", url: "https://www.producthunt.com", category: "communities", blurb: "New products launch here first." },
   { name: "Reddit", url: "https://www.reddit.com", category: "communities", blurb: "Unfiltered signal from real users." },
   { name: "Indie Hackers", url: "https://www.indiehackers.com", category: "communities", blurb: "Founders sharing what actually works." },
   { name: "Hacker News", url: "https://news.ycombinator.com", category: "communities", blurb: "The pulse of technical builders." },

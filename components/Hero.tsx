@@ -2,9 +2,24 @@
 
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/data/categories";
-import { SearchIcon, CloseIcon } from "./icons";
+import { SearchIcon, CloseIcon, ArrowUpRight } from "./icons";
 
 const ROTATING = ["build", "sell", "ship", "create", "automate", "research"];
+
+const PRESS = [
+  {
+    label: "Best Practical AI Training 2025",
+    href: "https://evergreenawards.com/awards/pace-labz-best-practical-ai-training-for-business-leaders-in-the-u-s-of-2025",
+  },
+  {
+    label: "CEO Times",
+    href: "https://ceotimes.com/why-brilliant-professionals-are-getting-left-behind-by-ai-and-one-founders-mission-to-change-that/",
+  },
+  {
+    label: "Leadr Magazine",
+    href: "https://leadrmagazine.com/empowering-professionals-with-ai-how-samruddhi-mokal-is-turning-overwhelming-technology-into-business-power/",
+  },
+];
 
 function useReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -83,7 +98,7 @@ export function Hero({
   return (
     <header className="relative overflow-hidden border-b border-dark-border">
       <div className="mx-auto max-w-shell px-6 pt-24 pb-14 md:pt-32">
-        <p className="eyebrow text-dusk">Samruddhi Mokal · Pace Labz</p>
+        <p className="eyebrow text-dusk">A personal guide by Samruddhi Mokal</p>
 
         <h1 className="mt-6 max-w-4xl font-serif text-[40px] font-normal leading-[1.05] tracking-[-0.02em] text-bone sm:text-[56px] md:text-[72px]">
           The AI tools I actually
@@ -94,7 +109,9 @@ export function Hero({
         </h1>
 
         <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-stone">
-          A living directory of the tools worth your time. Curated, not scraped.
+          The tools behind everything I build and teach. Collected over years,
+          tested on real work, and the ones I hand my clients. Not a list I
+          scraped.
         </p>
 
         {/* Search */}
@@ -136,13 +153,23 @@ export function Hero({
           <Stat value={favoriteCount} label="I use daily" accent />
         </div>
 
-        {/* Credentials */}
-        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2">
-          <span className="eyebrow text-soft-white/80">3x Founder</span>
-          <span className="hidden h-3 w-px bg-dark-border sm:inline" aria-hidden="true" />
-          <span className="eyebrow text-soft-white/80">Best AI Trainer Award 2025</span>
-          <span className="hidden h-3 w-px bg-dark-border sm:inline" aria-hidden="true" />
-          <span className="eyebrow text-soft-white/80">Featured in CEO Times &amp; Leaders Magazine</span>
+        {/* Press / recognition */}
+        <div className="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+          <span className="eyebrow text-stone">Featured in</span>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            {PRESS.map((p) => (
+              <a
+                key={p.label}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-[14px] text-soft-white/85 transition-colors hover:text-bone"
+              >
+                {p.label}
+                <ArrowUpRight className="h-3.5 w-3.5 text-stone transition-colors group-hover:text-amethyst" />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 

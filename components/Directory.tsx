@@ -3,10 +3,11 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { tools } from "@/data/tools";
 import { categories } from "@/data/categories";
-import type { CategoryId } from "@/lib/types";
+import type { CategoryId, Tool } from "@/lib/types";
 import { Hero } from "./Hero";
 import { ToolCard } from "./ToolCard";
 import { CommandPalette } from "./CommandPalette";
+import { ToolModal } from "./ToolModal";
 import { SearchIcon, StarIcon } from "./icons";
 
 const categoryLabel = (id: CategoryId) =>
@@ -17,6 +18,12 @@ export function Directory() {
   const [favoritesOnly, setFavoritesOnly] = useState(false);
   const [activeId, setActiveId] = useState<string>(categories[0].id);
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [selectedTool, setSelectedTool] = useState<Tool | null>(null);
+
+  const openTool = useCallback((t: Tool) => {
+    setPaletteOpen(false);
+    setSelectedTool(t);
+  }, []);
 
   const searchRef = useRef<HTMLInputElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -127,8 +134,8 @@ export function Directory() {
       <div className="sticky top-0 z-50 border-b border-dark-border bg-obsidian">
         <div className="mx-auto flex h-14 max-w-shell items-center gap-4 px-6">
           <a href="#top" className="shrink-0 font-serif text-[18px] tracking-[-0.01em]">
-            <span className="text-bone">Pace</span>
-            <span className="text-amethyst"> Labz</span>
+            <span className="text-bone">Samruddhi</span>
+            <span className="text-amethyst"> Mokal</span>
           </a>
 
           <button
@@ -260,7 +267,7 @@ export function Directory() {
 
                   <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
                     {items.map((tool, i) => (
-                      <ToolCard key={tool.name} tool={tool} index={i} />
+                      <ToolCard key={tool.name} tool={tool} index={i} onOpen={openTool} />
                     ))}
                   </div>
                 </section>
@@ -270,7 +277,12 @@ export function Directory() {
         </main>
       </div>
 
-      <CommandPalette open={paletteOpen} onClose={() => setPaletteOpen(false)} />
+      <CommandPalette
+        open={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
+        onSelect={openTool}
+      />
+      <ToolModal tool={selectedTool} onClose={() => setSelectedTool(null)} />
     </div>
   );
 }

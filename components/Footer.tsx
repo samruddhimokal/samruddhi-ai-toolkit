@@ -6,6 +6,35 @@ const socials = [
   { label: "pacelabz.com", href: "https://www.pacelabz.com/" },
 ];
 
+const press = [
+  {
+    label: "Best Practical AI Training 2025",
+    href: "https://evergreenawards.com/awards/pace-labz-best-practical-ai-training-for-business-leaders-in-the-u-s-of-2025",
+  },
+  {
+    label: "CEO Times",
+    href: "https://ceotimes.com/why-brilliant-professionals-are-getting-left-behind-by-ai-and-one-founders-mission-to-change-that/",
+  },
+  {
+    label: "Leadr Magazine",
+    href: "https://leadrmagazine.com/empowering-professionals-with-ai-how-samruddhi-mokal-is-turning-overwhelming-technology-into-business-power/",
+  },
+];
+
+function LinkRow({ label, href }: { label: string; href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group inline-flex items-center gap-1.5 text-[15px] text-soft-white transition-colors hover:text-bone"
+    >
+      {label}
+      <ArrowUpRight className="text-stone transition-colors group-hover:text-amethyst" />
+    </a>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="border-t border-dark-border">
@@ -15,15 +44,26 @@ export function Footer() {
           That is the toolkit. Curated by someone who actually uses it.
         </h2>
 
-        <div className="mt-16 grid gap-10 border-t border-dark-border pt-10 md:grid-cols-2">
+        <div className="mt-16 grid gap-10 border-t border-dark-border pt-10 md:grid-cols-3">
           <div>
             <p className="font-serif text-[22px] tracking-[-0.01em] text-bone">
               Samruddhi Mokal
             </p>
-            <p className="mt-3 max-w-md text-[14px] leading-relaxed text-stone">
-              3x founder. Best AI Trainer Award 2025. Featured in CEO Times and
-              Leaders Magazine. Founder of Pace Labz.
+            <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-stone">
+              I train teams and leaders to use AI like orchestrators. Founder of
+              Pace Labz.
             </p>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-4 text-dusk">Recognition</p>
+            <ul className="space-y-2">
+              {press.map((p) => (
+                <li key={p.label}>
+                  <LinkRow label={p.label} href={p.href} />
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="md:justify-self-end">
@@ -31,24 +71,22 @@ export function Footer() {
             <ul className="space-y-2">
               {socials.map((s) => (
                 <li key={s.label}>
-                  <a
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1.5 text-[15px] text-soft-white transition-colors hover:text-bone"
-                  >
-                    {s.label}
-                    <ArrowUpRight className="text-stone transition-colors group-hover:text-amethyst" />
-                  </a>
+                  <LinkRow label={s.label} href={s.href} />
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <p className="mt-16 text-[12px] text-stone">
-          Building a future where AI empowers human freedom.
-        </p>
+        <div className="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-dark-border pt-8">
+          <span className="font-serif text-[18px] tracking-[-0.01em]">
+            <span className="text-bone">Pace</span>
+            <span className="text-amethyst"> Labz</span>
+          </span>
+          <p className="text-[12px] text-stone">
+            Building a future where AI empowers human freedom.
+          </p>
+        </div>
       </div>
     </footer>
   );

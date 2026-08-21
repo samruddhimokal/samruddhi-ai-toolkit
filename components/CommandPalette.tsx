@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { tools } from "@/data/tools";
 import { categories } from "@/data/categories";
-import type { CategoryId } from "@/lib/types";
+import type { CategoryId, Tool } from "@/lib/types";
 import { SearchIcon, ReturnIcon, StarIcon } from "./icons";
 
 const categoryLabel = (id: CategoryId) =>
@@ -12,9 +12,11 @@ const categoryLabel = (id: CategoryId) =>
 export function CommandPalette({
   open,
   onClose,
+  onSelect,
 }: {
   open: boolean;
   onClose: () => void;
+  onSelect: (tool: Tool) => void;
 }) {
   const [q, setQ] = useState("");
   const [active, setActive] = useState(0);
@@ -61,15 +63,12 @@ export function CommandPalette({
       } else if (e.key === "Enter") {
         e.preventDefault();
         const t = results[active];
-        if (t) {
-          window.open(t.url, "_blank", "noopener,noreferrer");
-          onClose();
-        }
+        if (t) onSelect(t);
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, results, active, onClose]);
+  }, [open, results, active, onClose, onSelect]);
 
   useEffect(() => {
     const el = listRef.current?.querySelector<HTMLElement>(`[data-idx="${active}"]`);
@@ -112,13 +111,11 @@ export function CommandPalette({
           )}
           {results.map((t, idx) => (
             <li key={t.name} data-idx={idx}>
-              <a
-                href={t.url}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
                 onMouseEnter={() => setActive(idx)}
-                onClick={onClose}
-                className={`flex items-center gap-3 px-4 py-2.5 ${
+                onClick={() => onSelect(t)}
+                className={`flex w-full items-center gap-3 px-4 py-2.5 text-left ${
                   idx === active ? "bg-panel-hover" : ""
                 }`}
               >
@@ -145,7 +142,7 @@ export function CommandPalette({
                     <span className="text-[11px]">open</span>
                   </span>
                 )}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
