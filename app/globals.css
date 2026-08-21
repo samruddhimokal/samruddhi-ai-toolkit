@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --obsidian: #0a0a0a;
+  --bone: #fafaf7;
+  --amethyst: #6b5dd3;
+  --dusk: #9b8fe0;
+  --stone: #6b6b6b;
+  --soft-white: #e8e6f2;
+  --dark-border: #1f1f1f;
+  --light-border: #e5e5e0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Clear the sticky nav when jumping to a category */
+  scroll-padding-top: 96px;
+}
+
+body {
+  background-color: var(--bone);
+  color: var(--stone);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Editorial serif for headlines, names, numbers */
+.font-serif {
+  font-family: var(--font-fraunces), Georgia, serif;
+}
+
+/* Letter-spaced micro-label (eyebrows, metadata) */
+.eyebrow {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Focus ring in brand accent, never a default browser blue */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--amethyst);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--soft-white);
+  color: var(--obsidian);
+}
+
+/* Hide scrollbar on the horizontal category chip rail */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
