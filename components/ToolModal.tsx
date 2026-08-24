@@ -85,9 +85,6 @@ export function ToolModal({
                   </span>
                 </span>
               )}
-              {tool.added && (
-                <span className="eyebrow tracking-[0.12em] text-dusk">Added</span>
-              )}
             </div>
             <h2 className="mt-2 font-serif text-[26px] leading-tight tracking-[-0.015em] text-bone sm:text-[30px]">
               {tool.name}

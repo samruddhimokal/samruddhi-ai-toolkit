@@ -51,9 +51,6 @@ export function ToolCard({
           <span className="truncate text-[11px] lowercase tracking-[0.06em] text-stone">
             {domain}
           </span>
-          {tool.added && (
-            <span className="eyebrow tracking-[0.12em] text-dusk">Added</span>
-          )}
         </div>
         <span className="shrink-0 whitespace-nowrap text-[11px] font-medium tracking-[0.06em] text-stone transition-colors duration-300 group-hover:text-amethyst">
           Details →
