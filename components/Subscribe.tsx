@@ -65,7 +65,7 @@ export function SubscribeForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
       <p className="mt-3 text-[12.5px] text-stone">
-        Regular emails. New tools, best videos, and what changed. Unsubscribe anytime.
+        Always free, no card needed. New tools, best videos, and what changed. Unsubscribe anytime.
       </p>
     </form>
   );
