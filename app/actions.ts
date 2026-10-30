@@ -71,7 +71,10 @@ export async function subscribe(
     });
     if (!added.ok) throw new Error(`form ${added.status}`);
 
-    return { status: "ok", message: "Almost done. Check your inbox and confirm your email." };
+    return {
+      status: "ok",
+      message: "Almost done. Look for an email from me, Samruddhi Mokal, and click the button to confirm.",
+    };
   } catch (err) {
     console.error("Kit subscribe failed:", err);
     return { status: "error", message: "Something went wrong on our side. Please try again." };
