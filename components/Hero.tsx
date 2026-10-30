@@ -171,6 +171,18 @@ export function Hero({
                     {c.label}
                   </a>
                 ))}
+                <a
+                  href="#learn"
+                  className="rounded border border-amethyst/50 px-3 py-1.5 text-[13px] text-dusk transition-colors hover:border-amethyst hover:text-bone"
+                >
+                  Learn AI
+                </a>
+                <a
+                  href="#follow"
+                  className="rounded border border-amethyst/50 px-3 py-1.5 text-[13px] text-dusk transition-colors hover:border-amethyst hover:text-bone"
+                >
+                  Who to follow
+                </a>
               </div>
             </div>
           </div>

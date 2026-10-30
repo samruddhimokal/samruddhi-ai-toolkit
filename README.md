@@ -55,6 +55,8 @@ Everything lives in two files. No code changes needed to update the guide.
 - **`data/categories.ts`** — the category list, their order on the page, and each section's one-line description. To add a new category, add an entry here and a matching `id` in `lib/types.ts`.
 - **`data/toolDetails.ts`** — the rich content shown in each tool's detail card (description, bestFor, pricing, pros, cons, take), keyed by the exact tool name. Edit any field freely; missing tools fall back to the card blurb.
 
+- **`data/learn.ts`**: the "Learn AI" video tracks, the "Who to follow" list, and the n8n creator link (`N8N_CREATOR_URL`). Add a video or a person by adding one object to the matching list.
+
 ## Brand
 
 Colors, typography (Fraunces + Inter), and layout follow the Pace Labz brand system v2. Brand tokens are defined in `tailwind.config.ts` and `app/globals.css`.

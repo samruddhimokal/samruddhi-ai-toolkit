@@ -1,8 +1,10 @@
 import { ArrowUpRight } from "./icons";
+import { N8N_CREATOR_URL } from "@/data/learn";
 
 const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/samruddhi-mokal/" },
   { label: "X / Twitter", href: "https://x.com/samruddhi_mokal" },
+  { label: "n8n templates", href: N8N_CREATOR_URL },
   { label: "pacelabz.com", href: "https://www.pacelabz.com/" },
 ];
 
