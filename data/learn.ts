@@ -1,13 +1,16 @@
-// Learning shelf + people to follow. Edit freely.
-// Video links point to the official channel upload or the creator's own page.
+// Learning shelf: single talks and free YouTube courses. Edit freely.
+// Every link below was checked against YouTube on 2026-10-30 (title + channel).
 
 export const N8N_CREATOR_URL = "https://n8n.io/creators/samruddhi-ai-automations/";
+
+const yt = (id: string) => `https://www.youtube.com/watch?v=${id}`;
+const ytList = (id: string) => `https://www.youtube.com/playlist?list=${id}`;
 
 export interface Video {
   title: string;
   by: string;
   url: string;
-  /** e.g. "1h", "8 min", "Series" */
+  /** e.g. "1h", "8 min" */
   length: string;
   why: string;
 }
@@ -19,10 +22,6 @@ export interface VideoTrack {
   videos: Video[];
 }
 
-const yt = (id: string) => `https://www.youtube.com/watch?v=${id}`;
-const ytSearch = (q: string) =>
-  `https://www.youtube.com/results?search_query=${encodeURIComponent(q)}`;
-
 export const videoTracks: VideoTrack[] = [
   {
     id: "start-here",
@@ -32,7 +31,7 @@ export const videoTracks: VideoTrack[] = [
       {
         title: "Large Language Models explained briefly",
         by: "3Blue1Brown",
-        url: ytSearch("3Blue1Brown Large Language Models explained briefly"),
+        url: yt("LPZh9BOjkQs"),
         length: "8 min",
         why: "The clearest 8 minutes on what an LLM is.",
       },
@@ -48,7 +47,7 @@ export const videoTracks: VideoTrack[] = [
         by: "Andrej Karpathy",
         url: yt("EWvNQjAaOHw"),
         length: "2h",
-        why: "Practical daily use, from the person who built them.",
+        why: "Practical daily use, from someone who helped build them.",
       },
     ],
   },
@@ -65,25 +64,18 @@ export const videoTracks: VideoTrack[] = [
         why: "The full ChatGPT pipeline for a general audience.",
       },
       {
-        title: "But what is a GPT? Visual intro to transformers",
+        title: "Transformers, the tech behind LLMs",
         by: "3Blue1Brown",
         url: yt("wjZofJX0v4M"),
         length: "27 min",
         why: "See the transformer instead of reading about it.",
       },
       {
-        title: "Neural Networks series",
+        title: "Attention in transformers, step-by-step",
         by: "3Blue1Brown",
-        url: "https://www.3blue1brown.com/topics/neural-networks",
-        length: "Series",
-        why: "Neurons, gradient descent, attention. Visually.",
-      },
-      {
-        title: "Neural Networks: Zero to Hero",
-        by: "Andrej Karpathy",
-        url: "https://karpathy.ai/zero-to-hero.html",
-        length: "Series",
-        why: "Build GPT from scratch in code. For builders.",
+        url: yt("eMlx5fFNoYc"),
+        length: "26 min",
+        why: "The one mechanism that made modern AI work.",
       },
     ],
   },
@@ -95,12 +87,12 @@ export const videoTracks: VideoTrack[] = [
       {
         title: "Software Is Changing (Again)",
         by: "Andrej Karpathy · Y Combinator",
-        url: ytSearch("Andrej Karpathy Software Is Changing (Again) YC AI Startup School"),
+        url: yt("LCEmiRjPEtQ"),
         length: "40 min",
         why: "Software 3.0. English is the new programming language.",
       },
       {
-        title: "AGI is still a decade away",
+        title: "We're summoning ghosts, not building animals",
         by: "Dwarkesh Patel with Andrej Karpathy",
         url: yt("lXUZvyajciY"),
         length: "2.5h",
@@ -109,14 +101,14 @@ export const videoTracks: VideoTrack[] = [
       {
         title: "The Thinking Game",
         by: "Google DeepMind",
-        url: ytSearch("The Thinking Game full documentary Google DeepMind"),
+        url: yt("d95J8yzvjbQ"),
         length: "1.5h",
         why: "Free documentary on DeepMind, AlphaGo, and AlphaFold.",
       },
       {
-        title: "Geoffrey Hinton on 60 Minutes",
+        title: "Geoffrey Hinton: The 60 Minutes Interview",
         by: "CBS 60 Minutes",
-        url: ytSearch("Geoffrey Hinton 60 Minutes godfather of AI"),
+        url: yt("qrvK_KuIeJk"),
         length: "15 min",
         why: "The godfather of deep learning on the risks and the upside.",
       },
@@ -124,54 +116,215 @@ export const videoTracks: VideoTrack[] = [
   },
 ];
 
-export interface Person {
-  name: string;
-  /** What they are known for, one line */
-  role: string;
-  /** Primary handle to follow */
+export interface Course {
+  title: string;
+  /** Official channel that published it */
+  by: string;
   url: string;
-  handle: string;
+  /** e.g. "12 videos", "3.5h" */
+  size: string;
+  /** Beginner | Intermediate | Technical */
+  level: "Beginner" | "Intermediate" | "Technical";
+  why: string;
+  note?: string;
 }
 
-export interface PeopleGroup {
+export interface CourseGroup {
   id: string;
   label: string;
-  people: Person[];
+  blurb: string;
+  courses: Course[];
 }
 
-export const peopleGroups: PeopleGroup[] = [
+// Free on YouTube, from the official channel. No sign-up, no paywall.
+export const courseGroups: CourseGroup[] = [
   {
-    id: "builders",
-    label: "Builders & researchers",
-    people: [
-      { name: "Andrej Karpathy", role: "Ex-OpenAI, ex-Tesla AI. Best AI teacher alive.", url: "https://x.com/karpathy", handle: "@karpathy" },
-      { name: "Andrew Ng", role: "DeepLearning.AI, Coursera. Weekly 'The Batch'.", url: "https://x.com/AndrewYNg", handle: "@AndrewYNg" },
-      { name: "Demis Hassabis", role: "CEO, Google DeepMind. Nobel laureate.", url: "https://x.com/demishassabis", handle: "@demishassabis" },
-      { name: "Sam Altman", role: "CEO, OpenAI.", url: "https://x.com/sama", handle: "@sama" },
-      { name: "Yann LeCun", role: "Turing Award winner. Contrarian on LLMs.", url: "https://x.com/ylecun", handle: "@ylecun" },
-      { name: "Jeremy Howard", role: "fast.ai. Practical deep learning for everyone.", url: "https://x.com/jeremyphoward", handle: "@jeremyphoward" },
+    id: "literacy",
+    label: "AI literacy for everyone",
+    blurb: "No code. What AI is, what it is good at, and how to work with it.",
+    courses: [
+      {
+        title: "AI Fluency Course",
+        by: "Anthropic",
+        url: ytList("PLf2m23nhTg1NjL3-jL3s0qZCYzO07ZQPv"),
+        size: "12 videos",
+        level: "Beginner",
+        why: "A framework for working with AI well: delegate, describe, discern.",
+      },
+      {
+        title: "OpenAI Academy",
+        by: "OpenAI",
+        url: ytList("PLOXw6I10VTv-b--yfoyxalr34VJ1ouY6_"),
+        size: "13 videos",
+        level: "Beginner",
+        why: "Practical ChatGPT skills for everyday work.",
+      },
+      {
+        title: "Google AI Essentials",
+        by: "Grow with Google",
+        url: ytList("PLTZYG7bZ1u6piogbmszA_TzDyR3K85Qn9"),
+        size: "Full playlist",
+        level: "Beginner",
+        why: "Google's beginner course, lesson videos free on YouTube.",
+        note: "The certificate is paid on Coursera. The videos are free here.",
+      },
+      {
+        title: "Introduction to Generative AI",
+        by: "Google Cloud",
+        url: ytList("PLBgogxgQVM9sl-KnKywVEhkb3QtLHU4OK"),
+        size: "4 videos",
+        level: "Beginner",
+        why: "Short primers on GenAI, LLMs, and responsible AI.",
+      },
+      {
+        title: "AI Academy",
+        by: "IBM Technology",
+        url: ytList("PLOspHqNVtKACJx_ue2EXC1MerohY_lLKO"),
+        size: "24 videos",
+        level: "Beginner",
+        why: "AI for business decisions: data, governance, and value.",
+      },
     ],
   },
   {
-    id: "practical",
-    label: "Practical AI",
-    people: [
-      { name: "Ethan Mollick", role: "Wharton. How AI changes real work.", url: "https://x.com/emollick", handle: "@emollick" },
-      { name: "Simon Willison", role: "Hands-on LLM experiments, written up daily.", url: "https://simonwillison.net", handle: "simonwillison.net" },
-      { name: "Allie K. Miller", role: "AI for business leaders.", url: "https://x.com/alliekmiller", handle: "@alliekmiller" },
-      { name: "Logan Kilpatrick", role: "Google AI Studio and Gemini API.", url: "https://x.com/OfficialLoganK", handle: "@OfficialLoganK" },
-      { name: "Greg Isenberg", role: "AI startup ideas and distribution.", url: "https://x.com/gregisenberg", handle: "@gregisenberg" },
+    id: "prompting",
+    label: "Using AI at work",
+    blurb: "Get better answers faster. Prompting and daily workflows.",
+    courses: [
+      {
+        title: "Prompt Engineering Tutorial",
+        by: "freeCodeCamp",
+        url: yt("_ZvnD73m40o"),
+        size: "42 min",
+        level: "Beginner",
+        why: "The fundamentals of prompting in one sitting.",
+      },
+      {
+        title: "Claude Code 101",
+        by: "Claude (Anthropic)",
+        url: ytList("PLmWCw1CzcFilebjK89WLb5cAvM8K0cLB3"),
+        size: "9 videos",
+        level: "Intermediate",
+        why: "Your first AI agent that works on real files.",
+      },
     ],
   },
   {
-    id: "signal",
-    label: "News & signal",
-    people: [
-      { name: "Rowan Cheung", role: "The Rundown AI. Daily news in 5 minutes.", url: "https://x.com/rowancheung", handle: "@rowancheung" },
-      { name: "swyx", role: "Latent Space. The AI engineer's podcast.", url: "https://x.com/swyx", handle: "@swyx" },
-      { name: "Dwarkesh Patel", role: "Long-form interviews with the frontier.", url: "https://x.com/dwarkesh_sp", handle: "@dwarkesh_sp" },
-      { name: "AI Explained", role: "Sober breakdowns of every major release.", url: "https://www.youtube.com/@aiexplained-official", handle: "YouTube" },
-      { name: "Two Minute Papers", role: "New research, explained in minutes.", url: "https://www.youtube.com/@TwoMinutePapers", handle: "YouTube" },
+    id: "automation",
+    label: "Automation & agents",
+    blurb: "Low code. Build workflows and agents that do work for you.",
+    courses: [
+      {
+        title: "n8n Beginner course",
+        by: "n8n",
+        url: ytList("PLlET0GsrLUL59YbxstZE71WszP3pVnZfI"),
+        size: "10 videos",
+        level: "Beginner",
+        why: "The official start for workflow automation.",
+      },
+      {
+        title: "n8n Tutorial: Zero to Hero",
+        by: "freeCodeCamp",
+        url: yt("UIf-SlmMays"),
+        size: "3.5h",
+        level: "Beginner",
+        why: "One long session, from first node to AI workflows.",
+      },
+      {
+        title: "AI Agents for Beginners",
+        by: "Microsoft Developer",
+        url: ytList("PLlrxD0HtieHgKcRjd5-8DT9TbwdlDO-OC"),
+        size: "15 videos",
+        level: "Intermediate",
+        why: "What agents are, design patterns, and when to use them.",
+      },
+      {
+        title: "Generative AI for Beginners",
+        by: "Microsoft Developer",
+        url: ytList("PLlrxD0HtieHj2nfK54c62lcs3-YSTx3Je"),
+        size: "19 videos",
+        level: "Intermediate",
+        why: "Build GenAI apps: prompts, RAG, and safety.",
+      },
+      {
+        title: "RAG & MCP Fundamentals",
+        by: "freeCodeCamp",
+        url: yt("I7_WXKhyGms"),
+        size: "1.7h",
+        level: "Intermediate",
+        why: "How agents read your documents and use tools.",
+      },
+    ],
+  },
+  {
+    id: "technical",
+    label: "Technical foundations",
+    blurb: "For builders who want to know how the models work.",
+    courses: [
+      {
+        title: "Neural networks",
+        by: "3Blue1Brown",
+        url: ytList("PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi"),
+        size: "10 videos",
+        level: "Intermediate",
+        why: "Neurons to attention. Visual, no heavy math required.",
+      },
+      {
+        title: "Neural Networks: Zero to Hero",
+        by: "Andrej Karpathy",
+        url: ytList("PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ"),
+        size: "10 videos",
+        level: "Technical",
+        why: "Build GPT from scratch in Python.",
+      },
+      {
+        title: "CS50's Introduction to AI with Python",
+        by: "Harvard CS50",
+        url: ytList("PLhQjrBD2T381PopUTYtMSstgk-hsTGkVm"),
+        size: "Full lectures",
+        level: "Technical",
+        why: "Search, reasoning, ML, and neural nets. A full university course.",
+      },
+      {
+        title: "Practical Deep Learning for Coders",
+        by: "Jeremy Howard (fast.ai)",
+        url: ytList("PLfYUBJiXbdtSvpQjSnJJ_PmDQB_VyT5iU"),
+        size: "Full lessons",
+        level: "Technical",
+        why: "Top-down and hands-on. Train real models from lesson one.",
+      },
+      {
+        title: "Hugging Face Course",
+        by: "Hugging Face",
+        url: ytList("PLo2EIpI_JMQvWfQndUesu0nPBAtZ9gP1o"),
+        size: "Full playlist",
+        level: "Technical",
+        why: "Use open models with Transformers, datasets, and tokenizers.",
+      },
+      {
+        title: "MIT 6.S191: Introduction to Deep Learning",
+        by: "Alexander Amini (MIT)",
+        url: ytList("PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI"),
+        size: "Lectures by year",
+        level: "Technical",
+        why: "MIT's bootcamp, refreshed every year.",
+      },
+      {
+        title: "CME295: Transformers and Large Language Models",
+        by: "Stanford Online",
+        url: ytList("PLoROMvodv4rOCXd21gf0CF4xr35yINeOy"),
+        size: "9 lectures",
+        level: "Technical",
+        why: "Stanford's 2025 course on how LLMs are built and trained.",
+      },
+      {
+        title: "CS229: Machine Learning (Andrew Ng)",
+        by: "Stanford Online",
+        url: ytList("PLoROMvodv4rMiGQp3WXShtMGgzqpfVfbU"),
+        size: "20 lectures",
+        level: "Technical",
+        why: "The classic ML course. Math-heavy and foundational.",
+      },
     ],
   },
 ];

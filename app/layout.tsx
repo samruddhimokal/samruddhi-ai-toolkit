@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
+import { SiteNav } from "@/components/SiteNav";
+import { Footer } from "@/components/Footer";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -19,10 +21,10 @@ const inter = Inter({
 
 const siteTitle = "The AI Toolkit — Curated by Samruddhi Mokal";
 const siteDescription =
-  "A living directory of 125+ AI tools worth your time, across 31 categories. Curated, not scraped, by Samruddhi Mokal of Pace Labz. Search, filter, and find your stack.";
+  "A free learning guide to AI: 125+ hand-picked tools, a 30-day path, free YouTube courses, prompts, and who to follow. Curated by Samruddhi Mokal.";
 
 export const metadata: Metadata = {
-  title: siteTitle,
+  title: { default: siteTitle, template: "%s · The AI Toolkit" },
   description: siteDescription,
   openGraph: {
     title: siteTitle,
@@ -46,7 +48,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteNav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

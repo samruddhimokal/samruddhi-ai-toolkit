@@ -1,13 +1,11 @@
 import { Directory } from "@/components/Directory";
-import { Footer } from "@/components/Footer";
-import { Learn } from "@/components/Learn";
+import { HomeGuide } from "@/components/HomeGuide";
 
 export default function Home() {
   return (
     <>
       <Directory />
-      <Learn />
-      <Footer />
+      <HomeGuide />
     </>
   );
 }

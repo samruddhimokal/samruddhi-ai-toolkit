@@ -55,7 +55,28 @@ Everything lives in two files. No code changes needed to update the guide.
 - **`data/categories.ts`** — the category list, their order on the page, and each section's one-line description. To add a new category, add an entry here and a matching `id` in `lib/types.ts`.
 - **`data/toolDetails.ts`** — the rich content shown in each tool's detail card (description, bestFor, pricing, pros, cons, take), keyed by the exact tool name. Edit any field freely; missing tools fall back to the card blurb.
 
-- **`data/learn.ts`**: the "Learn AI" video tracks, the "Who to follow" list, and the n8n creator link (`N8N_CREATOR_URL`). Add a video or a person by adding one object to the matching list.
+- **Guide pages** (each has its own link to share):
+
+  | Page | Data file |
+  |---|---|
+  | `/start` 30-day path | `data/path.ts` |
+  | `/learn` videos + free YouTube courses | `data/learn.ts` (also holds `N8N_CREATOR_URL`) |
+  | `/follow` LinkedIn, X, YouTube, Instagram, Reddit | `data/follow.ts` |
+  | `/stay-current` newsletters + podcasts | `data/news.ts` |
+  | `/prompts` template + starter prompts | `data/prompts.ts` |
+  | `/stacks` tools by role | `data/stacks.ts` (tool names must match `data/tools.ts`) |
+  | `/glossary` plain-English terms | `data/glossary.ts` |
+
+  Every page jumps to sections with a `#hash`, e.g. `/follow#reddit` or `/stacks#sales`.
+
+## Email signups (Kit)
+
+The footer form and `/subscribe` add learners to Kit through a server action (`app/actions.ts`). The API key never reaches the browser.
+
+1. In Kit, create a form and turn on double opt-in for it (its confirmation email is what new subscribers receive).
+2. In Kit > Settings > Developer, create a V4 API key.
+3. In Vercel > Project > Settings > Environment Variables, add `KIT_API_KEY` and `KIT_FORM_ID` (the number in the form's URL). See `.env.example`.
+4. Redeploy. Until both are set, the form shows "Sign-ups open soon".
 
 ## Brand
 

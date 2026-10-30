@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "./icons";
 import { N8N_CREATOR_URL } from "@/data/learn";
+import { SubscribeForm } from "./Subscribe";
 
 const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/samruddhi-mokal/" },
@@ -41,10 +42,17 @@ export function Footer() {
   return (
     <footer className="border-t border-dark-border">
       <div className="mx-auto max-w-shell px-6 py-20 md:py-28">
-        <p className="eyebrow text-dusk">The go-to AI resource</p>
+        <p className="eyebrow text-dusk">The monthly update</p>
         <h2 className="mt-6 max-w-3xl font-serif text-[30px] font-normal leading-[1.14] tracking-[-0.02em] text-bone sm:text-[44px]">
-          That is the toolkit. Curated by someone who actually uses it.
+          Keep up without the noise.
         </h2>
+        <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-stone">
+          Once a month: the tools worth adding, the best new videos, and what
+          actually changed in AI.
+        </p>
+        <div className="mt-8">
+          <SubscribeForm compact />
+        </div>
 
         <div className="mt-16 grid gap-10 border-t border-dark-border pt-10 md:grid-cols-3">
           <div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/data/categories";
 import { SearchIcon, CloseIcon, ArrowUpRight } from "./icons";
@@ -95,7 +96,7 @@ export function Hero({
 
   return (
     <header className="relative overflow-hidden border-b border-dark-border">
-      <div className="mx-auto max-w-shell px-6 pt-24 pb-14 md:pt-28">
+      <div className="mx-auto max-w-shell px-6 pt-16 pb-14 md:pt-20">
         {/* Byline */}
         <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
           <span className="eyebrow text-dusk">A personal guide by</span>
@@ -171,18 +172,19 @@ export function Hero({
                     {c.label}
                   </a>
                 ))}
-                <a
-                  href="#learn"
-                  className="rounded border border-amethyst/50 px-3 py-1.5 text-[13px] text-dusk transition-colors hover:border-amethyst hover:text-bone"
-                >
-                  Learn AI
-                </a>
-                <a
-                  href="#follow"
-                  className="rounded border border-amethyst/50 px-3 py-1.5 text-[13px] text-dusk transition-colors hover:border-amethyst hover:text-bone"
-                >
-                  Who to follow
-                </a>
+                {[
+                  { href: "/start", label: "Start here: 30-day path" },
+                  { href: "/learn", label: "Free courses" },
+                  { href: "/follow", label: "Who to follow" },
+                ].map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="rounded border border-amethyst/50 px-3 py-1.5 text-[13px] text-dusk transition-colors hover:border-amethyst hover:text-bone"
+                  >
+                    {l.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

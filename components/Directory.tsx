@@ -140,22 +140,11 @@ export function Directory() {
             The AI Toolkit
           </a>
 
-          <nav className="ml-auto hidden items-center gap-5 sm:flex" aria-label="Sections">
-            <a href="#learn" className="text-[12px] text-stone transition-colors hover:text-soft-white">
-              Learn
-            </a>
-            <a href="#follow" className="text-[12px] text-stone transition-colors hover:text-soft-white">
-              Who to follow
-            </a>
-            <a href="#templates" className="text-[12px] text-stone transition-colors hover:text-soft-white">
-              n8n templates
-            </a>
-          </nav>
 
           <button
             onClick={() => setFavoritesOnly((v) => !v)}
             aria-pressed={favoritesOnly}
-            className={`ml-auto inline-flex shrink-0 items-center gap-1.5 rounded border sm:ml-0 px-3 py-1.5 text-[12px] transition-colors ${
+            className={`ml-auto inline-flex shrink-0 items-center gap-1.5 rounded border px-3 py-1.5 text-[12px] transition-colors ${
               favoritesOnly
                 ? "border-amethyst text-amethyst"
                 : "border-dark-border text-stone hover:text-soft-white"
