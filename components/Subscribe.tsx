@@ -56,7 +56,7 @@ export function SubscribeForm({ compact = false }: { compact?: boolean }) {
           disabled={pending}
           className="shrink-0 rounded bg-amethyst px-5 py-3.5 text-[14px] font-medium text-bone transition-opacity hover:opacity-90 disabled:opacity-60"
         >
-          {pending ? "Subscribing…" : "Get the monthly update"}
+          {pending ? "Subscribing…" : "Get regular AI updates"}
         </button>
       </div>
       {state.status === "error" && (
@@ -65,7 +65,7 @@ export function SubscribeForm({ compact = false }: { compact?: boolean }) {
         </p>
       )}
       <p className="mt-3 text-[12.5px] text-stone">
-        One email a month. New tools, best videos, and what changed. Unsubscribe anytime.
+        Regular emails. New tools, best videos, and what changed. Unsubscribe anytime.
       </p>
     </form>
   );

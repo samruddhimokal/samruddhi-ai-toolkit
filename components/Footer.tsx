@@ -42,12 +42,12 @@ export function Footer() {
   return (
     <footer className="border-t border-dark-border">
       <div className="mx-auto max-w-shell px-6 py-20 md:py-28">
-        <p className="eyebrow text-dusk">The monthly update</p>
+        <p className="eyebrow text-dusk">Regular AI updates</p>
         <h2 className="mt-6 max-w-3xl font-serif text-[30px] font-normal leading-[1.14] tracking-[-0.02em] text-bone sm:text-[44px]">
           Keep up without the noise.
         </h2>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-stone">
-          Once a month: the tools worth adding, the best new videos, and what
+          Regularly: the tools worth adding, the best new videos, and what
           actually changed in AI.
         </p>
         <div className="mt-8">
