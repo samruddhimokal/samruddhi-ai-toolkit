@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactElement, type ReactNode } from "react";
 
-// A one-minute animated explainer of the six-step planner. It plays like a
+// A one-minute animated explainer of Build Your AI Team. It plays like a
 // muted video: autoplay on view, pause, jump to a chapter, replay. Everything
 // is CSS animation inside a 16:9 stage sized in container units, so it scales
 // from phone to desktop. Pausing freezes the animations and the clock.
@@ -24,7 +24,7 @@ const a = (name: string, delay: number, dur = 0.6): CSSProperties => ({
   animation: `${name} ${dur}s ${ease} ${delay}s both`,
 });
 
-export function PlannerFilm() {
+export function AiTeamFilm() {
   const [scene, setScene] = useState(0);
   const [t, setT] = useState(0);
   const [playing, setPlaying] = useState(false);

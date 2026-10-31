@@ -151,7 +151,7 @@ kbd {
   background: var(--panel);
 }
 
-/* ── Tool planner explainer film ───────────────────────────────── */
+/* ── Build Your AI Team explainer film ───────────────────────────────── */
 .film-paused,
 .film-paused * {
   animation-play-state: paused !important;
@@ -233,7 +233,7 @@ kbd {
   }
 }
 
-/* ── Tool planner: small entrance animation ───────────────── */
+/* ── Build Your AI Team: small entrance animation ───────────────── */
 @keyframes popIn {
   from {
     opacity: 0;

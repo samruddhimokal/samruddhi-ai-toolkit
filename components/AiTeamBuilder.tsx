@@ -27,7 +27,7 @@ import {
   type DataKind,
   type Candidate,
   type Score,
-} from "@/data/toolPlanner";
+} from "@/data/aiTeam";
 import { CopyButton } from "./CopyButton";
 
 // ── State ────────────────────────────────────────────────────────────────
@@ -52,6 +52,7 @@ const initial: State = {
   usage: exampleUsageBudget,
 };
 
+// Storage key predates the rename; kept so saved answers survive.
 const KEY = "choose-your-stack-v1";
 
 const steps = [
@@ -63,7 +64,7 @@ const steps = [
   { n: 6, id: "review", title: "Review every quarter", line: "If you cannot say the difference in one sentence, you are paying twice." },
 ];
 
-export function StackBuilder() {
+export function AiTeamBuilder() {
   const [s, setS] = useState<State>(initial);
   const [loaded, setLoaded] = useState(false);
 
@@ -1097,7 +1098,7 @@ function OnePage({ state, capUsed, onReset }: { state: State; capUsed: (c: Capab
   };
 
   const text = [
-    "MY AI STACK",
+    "MY AI TEAM",
     ...rows.map((n) => {
       const ex = n.exception(state.settings);
       return `${n.label}: ${n.defaultTool(state.settings)}${ex ? ` | exception: ${ex.tool} (${ex.job})` : ""} | seats: ${seatLabel(n.id)}`;

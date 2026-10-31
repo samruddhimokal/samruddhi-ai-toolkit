@@ -1,4 +1,4 @@
-// AI Tool Planner: Samruddhi's six-step method for picking AI tools,
+// Build Your AI Team: Samruddhi's six-step method for picking AI tools,
 // rebuilt as an interactive page. Defaults, prices, and privacy notes are her
 // calls as of September 2026. Prices are indicative list prices in USD.
 

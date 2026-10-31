@@ -243,7 +243,7 @@ export default function PromptsPage() {
           </CardGrid>
         </Section>
 
-        <NextStep href="/tool-planner" label="Plan your AI tools" />
+        <NextStep href="/build-your-ai-team" label="Build Your AI Team" />
       </PageBody>
     </>
   );

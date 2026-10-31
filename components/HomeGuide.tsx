@@ -10,7 +10,7 @@ const count = (groups: { length: number }[]) => groups.reduce((n, g) => n + g.le
 
 const pages = [
   { href: "/start", title: "Start here", body: "A 30-day path with a progress tracker. One real project every week." },
-  { href: "/tool-planner", title: "AI Tool Planner", body: "Six interactive steps to decide which tools to pay for, and which to skip." },
+  { href: "/build-your-ai-team", title: "Build Your AI Team", body: "Six interactive steps to decide which tools to pay for, and which to skip." },
   { href: "/learn", title: "Learn", body: `The best talks and ${count(courseGroups.map((g) => g.courses))} free YouTube courses, from beginner to builder.` },
   { href: "/follow", title: "Who to follow", body: "LinkedIn, X, YouTube, Instagram, and Reddit, verified." },
   { href: "/stay-current", title: "Stay current", body: `${newsletters.length} newsletters and ${podcasts.length} podcasts, sorted by depth.` },
