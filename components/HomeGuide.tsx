@@ -9,11 +9,12 @@ import { ArrowUpRight } from "./icons";
 const count = (groups: { length: number }[]) => groups.reduce((n, g) => n + g.length, 0);
 
 const pages = [
-  { href: "/start", title: "Start here", body: "A 30-day path. Four weeks, one real project each." },
+  { href: "/start", title: "Start here", body: "A 30-day path with a progress tracker. One real project every week." },
+  { href: "/choose-your-stack", title: "Choose your stack", body: "Six interactive steps to decide which tools to pay for, and which to skip." },
   { href: "/learn", title: "Learn", body: `The best talks and ${count(courseGroups.map((g) => g.courses))} free YouTube courses, from beginner to builder.` },
   { href: "/follow", title: "Who to follow", body: "LinkedIn, X, YouTube, Instagram, and Reddit, verified." },
   { href: "/stay-current", title: "Stay current", body: `${newsletters.length} newsletters and ${podcasts.length} podcasts, sorted by depth.` },
-  { href: "/prompts", title: "Prompts", body: `A simple template and ${count(promptGroups.map((g) => g.prompts))} starter prompts you can copy.` },
+  { href: "/prompts", title: "Prompts", body: `${count(promptGroups.map((g) => g.prompts))} prompts for real work, plus JSON templates for image and video.` },
   { href: "/stacks", title: "Stacks by role", body: "Which tools to start with for your job." },
   { href: "/glossary", title: "Glossary", body: `${count(glossaryGroups.map((g) => g.terms))} AI terms in plain English.` },
 ];

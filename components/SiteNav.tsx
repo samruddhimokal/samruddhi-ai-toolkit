@@ -10,7 +10,8 @@ export const guidePages = [
   { href: "/follow", label: "Who to follow" },
   { href: "/stay-current", label: "Stay current" },
   { href: "/prompts", label: "Prompts" },
-  { href: "/stacks", label: "Stacks" },
+  { href: "/choose-your-stack", label: "Choose your stack" },
+  { href: "/stacks", label: "Stacks by role" },
   { href: "/glossary", label: "Glossary" },
 ];
 
