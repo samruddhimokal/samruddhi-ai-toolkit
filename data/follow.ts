@@ -9,8 +9,6 @@ export interface Account {
   url: string;
   /** What they post about, one line */
   why: string;
-  /** Optional honest note, e.g. sells their own tool */
-  note?: string;
   /** Rough audience size, e.g. "1.7M" */
   size?: string;
 }
@@ -54,11 +52,11 @@ export const platforms: Platform[] = [
       {
         label: "Practical how-to",
         accounts: [
-          { name: "Ruben Hassid", handle: "ruben-hassid", url: li("ruben-hassid"), why: "Step-by-step prompting guides and carousels.", note: "Some viral-style hooks. The tutorials are solid." },
+          { name: "Ruben Hassid", handle: "ruben-hassid", url: li("ruben-hassid"), why: "Step-by-step prompting guides and carousels." },
           { name: "Lenny Rachitsky", handle: "lennyrachitsky", url: li("lennyrachitsky"), why: "How product teams are adopting AI." },
           { name: "Vaibhav Sisinty", handle: "vaibhavsisinty", url: li("vaibhavsisinty"), why: "AI tools, prompts, and workflows to move faster at work." },
           { name: "Cassie Kozyrkov", handle: "kozyrkov", url: li("kozyrkov"), why: "Decision intelligence. Ex-Chief Decision Scientist at Google." },
-          { name: "Zain Kahn", handle: "zainkahn", url: li("zainkahn"), why: "Superhuman AI newsletter. Quick tool tips.", note: "Lighter, listicle style." },
+          { name: "Zain Kahn", handle: "zainkahn", url: li("zainkahn"), why: "Superhuman AI newsletter. Quick tool tips." },
           { name: "Greg Isenberg", handle: "gisenberg", url: li("gisenberg"), why: "AI startup ideas and how small teams build with AI." },
         ],
       },
@@ -115,7 +113,7 @@ export const platforms: Platform[] = [
         label: "For balance",
         accounts: [
           { name: "Yann LeCun", handle: "@ylecun", url: x("ylecun"), why: "Argues LLMs alone will not reach human-level AI." },
-          { name: "Gary Marcus", handle: "@garymarcus", url: x("garymarcus"), why: "The loudest skeptic. Read him to stress-test the hype.", note: "Polemical by design." },
+          { name: "Gary Marcus", handle: "@garymarcus", url: x("garymarcus"), why: "The loudest skeptic. Read him to stress-test the hype." },
         ],
       },
     ],
@@ -148,9 +146,9 @@ export const platforms: Platform[] = [
       {
         label: "Build automations & agents",
         accounts: [
-          { name: "Nate Herk", handle: "@NateHerk", url: yt("@NateHerk"), size: "1.1M", why: "n8n and AI agent builds, step by step.", note: "Runs a paid community." },
-          { name: "Nick Saraev", handle: "@nicksaraev", url: yt("@nicksaraev"), size: "575K", why: "Long, hands-on automation and vibe-coding builds.", note: "Runs a paid community." },
-          { name: "Sabrina Ramonov", handle: "@sabrina_ramonov", url: yt("@sabrina_ramonov"), size: "442K", why: "AI content and automation tutorials.", note: "Founder of Blotato, which she features." },
+          { name: "Nate Herk", handle: "@NateHerk", url: yt("@NateHerk"), size: "1.1M", why: "n8n and AI agent builds, step by step." },
+          { name: "Nick Saraev", handle: "@nicksaraev", url: yt("@nicksaraev"), size: "575K", why: "Long, hands-on automation and vibe-coding builds." },
+          { name: "Sabrina Ramonov", handle: "@sabrina_ramonov", url: yt("@sabrina_ramonov"), size: "442K", why: "AI content and automation tutorials." },
           { name: "Kyle Balmer", handle: "@iamkylebalmer", url: yt("@iamkylebalmer"), size: "81K", why: "Plain-English AI tutorials for non-technical people." },
         ],
       },
@@ -178,7 +176,7 @@ export const platforms: Platform[] = [
           { name: "Jeff Su", handle: "@j.sushie", url: ig("j.sushie"), why: "Short AI productivity tips." },
           { name: "Kyle Balmer", handle: "@iamkylebalmer", url: ig("iamkylebalmer"), why: "Simple AI how-tos for non-technical people." },
           { name: "Vaibhav Sisinty", handle: "@vaibhavsisinty", url: ig("vaibhavsisinty"), why: "Short AI tool and workflow tips." },
-          { name: "Sabrina Ramonov", handle: "@sabrina_ramonov", url: ig("sabrina_ramonov"), why: "AI automation for content creators.", note: "Founder of Blotato, which she features." },
+          { name: "Sabrina Ramonov", handle: "@sabrina_ramonov", url: ig("sabrina_ramonov"), why: "AI automation for content creators." },
           { name: "Varun Mayya", handle: "@thevarunmayya", url: ig("thevarunmayya"), why: "AI news and tools, India-focused." },
           { name: "Nate Herk", handle: "@nateherk", url: ig("nateherk"), why: "n8n and agent builds in short form." },
         ],
@@ -208,7 +206,7 @@ export const platforms: Platform[] = [
           { name: "r/ChatGPTPro", handle: "~620K members", url: r("ChatGPTPro"), why: "Advanced ChatGPT use cases and workflows." },
           { name: "r/ClaudeAI", handle: "~900K members", url: r("ClaudeAI"), why: "Claude tips, prompts, and honest comparisons." },
           { name: "r/n8n", handle: "~250K members", url: r("n8n"), why: "Workflow help and shared automations." },
-          { name: "r/PromptEngineering", handle: "~400K members", url: r("PromptEngineering"), why: "Prompt techniques and templates.", note: "Some self-promotion." },
+          { name: "r/PromptEngineering", handle: "~400K members", url: r("PromptEngineering"), why: "Prompt techniques and templates." },
         ],
       },
       {
@@ -216,7 +214,7 @@ export const platforms: Platform[] = [
         accounts: [
           { name: "r/LocalLLaMA", handle: "~800K members", url: r("LocalLLaMA"), why: "Running open models on your own machine. High signal." },
           { name: "r/ClaudeCode", handle: "~390K members", url: r("ClaudeCode"), why: "Coding agents in practice." },
-          { name: "r/AI_Agents", handle: "~450K members", url: r("AI_Agents"), why: "Agent frameworks and real use cases.", note: "Heavy self-promotion." },
+          { name: "r/AI_Agents", handle: "~450K members", url: r("AI_Agents"), why: "Agent frameworks and real use cases." },
           { name: "r/automation", handle: "~220K members", url: r("automation"), why: "Business automation beyond one tool." },
         ],
       },
@@ -224,8 +222,8 @@ export const platforms: Platform[] = [
         label: "Pulse check only",
         accounts: [
           { name: "r/MachineLearning", handle: "~3M members", url: r("MachineLearning"), why: "Research papers and discussion. Advanced." },
-          { name: "r/ChatGPT", handle: "~11M members", url: r("ChatGPT"), why: "What the public is doing with AI.", note: "Mostly memes." },
-          { name: "r/singularity", handle: "~3.5M members", url: r("singularity"), why: "Big-picture AGI debate.", note: "Speculative." },
+          { name: "r/ChatGPT", handle: "~11M members", url: r("ChatGPT"), why: "What the public is doing with AI." },
+          { name: "r/singularity", handle: "~3.5M members", url: r("singularity"), why: "Big-picture AGI debate." },
         ],
       },
     ],

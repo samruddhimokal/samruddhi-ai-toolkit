@@ -48,9 +48,6 @@ export default function FollowPage() {
                             </span>
                           </span>
                           <span className="mt-0.5 block text-[13.5px] leading-snug text-stone">{a.why}</span>
-                          {a.note && (
-                            <span className="mt-1 block text-[12px] leading-snug text-dusk/90">{a.note}</span>
-                          )}
                         </a>
                       </li>
                     ))}
