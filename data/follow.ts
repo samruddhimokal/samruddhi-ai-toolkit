@@ -56,6 +56,7 @@ export const platforms: Platform[] = [
         accounts: [
           { name: "Ruben Hassid", handle: "ruben-hassid", url: li("ruben-hassid"), why: "Step-by-step prompting guides and carousels.", note: "Some viral-style hooks. The tutorials are solid." },
           { name: "Lenny Rachitsky", handle: "lennyrachitsky", url: li("lennyrachitsky"), why: "How product teams are adopting AI." },
+          { name: "Vaibhav Sisinty", handle: "vaibhavsisinty", url: li("vaibhavsisinty"), why: "AI tools, prompts, and workflows to move faster at work.", note: "Founder of Outskill, where I mentor." },
           { name: "Cassie Kozyrkov", handle: "kozyrkov", url: li("kozyrkov"), why: "Decision intelligence. Ex-Chief Decision Scientist at Google." },
           { name: "Zain Kahn", handle: "zainkahn", url: li("zainkahn"), why: "Superhuman AI newsletter. Quick tool tips.", note: "Lighter, listicle style." },
           { name: "Greg Isenberg", handle: "gisenberg", url: li("gisenberg"), why: "AI startup ideas and how small teams build with AI." },
@@ -94,6 +95,7 @@ export const platforms: Platform[] = [
           { name: "Ethan Mollick", handle: "@emollick", url: x("emollick"), why: "What the research says about AI at work." },
           { name: "Simon Willison", handle: "@simonw", url: x("simonw"), why: "Honest, same-day testing of every new release." },
           { name: "Allie K. Miller", handle: "@alliekmiller", url: x("alliekmiller"), why: "AI for business, tested hands-on." },
+          { name: "Vaibhav Sisinty", handle: "@vaibhavsisinty", url: x("vaibhavsisinty"), why: "AI tools and workflows for work and business.", note: "Founder of Outskill, where I mentor." },
           { name: "Conor Grennan", handle: "@conorgrennan", url: x("conorgrennan"), why: "Using AI like a thinking partner." },
           { name: "Lenny Rachitsky", handle: "@lennysan", url: x("lennysan"), why: "AI for product builders." },
           { name: "Cassie Kozyrkov", handle: "@decisionleader", url: x("decisionleader"), why: "Decision-making in the age of AI." },
@@ -138,6 +140,7 @@ export const platforms: Platform[] = [
         accounts: [
           { name: "Jeff Su", handle: "@JeffSu", url: yt("@JeffSu"), size: "1.9M", why: "Productivity with AI. Short, practical, no fluff." },
           { name: "Tina Huang", handle: "@TinaHuang1", url: yt("@TinaHuang1"), size: "1.4M", why: "AI fundamentals and agents, summarized well." },
+          { name: "Vaibhav Sisinty", handle: "@VaibhavSisinty", url: yt("@VaibhavSisinty"), size: "878K", why: "AI tools, prompts, and workflows, plus interviews with AI builders.", note: "Founder of Outskill, where I mentor." },
           { name: "Aishwarya Srinivasan", handle: "@AishwaryaSrinivasan", url: yt("@AishwaryaSrinivasan"), size: "191K", why: "GenAI concepts and AI careers." },
           { name: "Varun Mayya", handle: "@VarunMayya", url: yt("@VarunMayya"), size: "1.2M", why: "AI news and what it means for India." },
         ],
@@ -174,6 +177,7 @@ export const platforms: Platform[] = [
           { name: "Tina Huang", handle: "@hellotinah", url: ig("hellotinah"), why: "Bite-size AI concepts from a former data scientist." },
           { name: "Jeff Su", handle: "@j.sushie", url: ig("j.sushie"), why: "Short AI productivity tips." },
           { name: "Kyle Balmer", handle: "@iamkylebalmer", url: ig("iamkylebalmer"), why: "Simple AI how-tos for non-technical people." },
+          { name: "Vaibhav Sisinty", handle: "@vaibhavsisinty", url: ig("vaibhavsisinty"), why: "Short AI tool and workflow tips.", note: "Founder of Outskill, where I mentor." },
           { name: "Sabrina Ramonov", handle: "@sabrina_ramonov", url: ig("sabrina_ramonov"), why: "AI automation for content creators.", note: "Founder of Blotato, which she features." },
           { name: "Varun Mayya", handle: "@thevarunmayya", url: ig("thevarunmayya"), why: "AI news and tools, India-focused." },
           { name: "Nate Herk", handle: "@nateherk", url: ig("nateherk"), why: "n8n and agent builds in short form." },
