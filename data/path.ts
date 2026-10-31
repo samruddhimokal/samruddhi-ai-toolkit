@@ -124,7 +124,7 @@ export const pathWeeks: PathWeek[] = [
       { id: "w4d23", days: "Day 23", minutes: 30, do: "Make one image with a JSON template. Then change one field at a time, 3 times. Note what each field did.", href: "/prompts#json", linkLabel: "JSON" },
       { id: "w4d24", days: "Day 24", minutes: 20, do: "Read the 'Risks & responsibility' section of the glossary.", href: "/glossary", linkLabel: "Glossary" },
       { id: "w4d25", days: "Day 25", minutes: 45, do: "Watch 'AI Agents for Beginners' lessons 1 to 3 from Microsoft.", href: "https://www.youtube.com/playlist?list=PLlrxD0HtieHgKcRjd5-8DT9TbwdlDO-OC", linkLabel: "Course" },
-      { id: "w4d26", days: "Day 26", minutes: 30, do: "Choose your stack: map your tasks, fill the seats, and see what you actually need to pay for.", href: "/choose-your-stack", linkLabel: "Choose" },
+      { id: "w4d26", days: "Day 26", minutes: 30, do: "Run the AI Tool Planner: map your tasks, fill the seats, and see what you actually need to pay for.", href: "/tool-planner", linkLabel: "Planner" },
     ],
     project: {
       id: "w4p",

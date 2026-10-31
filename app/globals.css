@@ -151,6 +151,67 @@ kbd {
   background: var(--panel);
 }
 
+/* ── Tool planner explainer film ───────────────────────────────── */
+.film-paused,
+.film-paused * {
+  animation-play-state: paused !important;
+}
+@keyframes filmFadeUp {
+  from { opacity: 0; transform: translateY(1.4cqw); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes filmDrop {
+  from { opacity: 0; transform: translateY(-3cqw) rotate(-4deg); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes filmSlideIn {
+  from { opacity: 0; transform: translateX(-3cqw); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes filmFlyDown {
+  0% { opacity: 0; transform: translateY(-8cqw) scale(0.9); }
+  70% { opacity: 1; transform: translateY(0.4cqw) scale(1.04); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes filmPop {
+  0% { opacity: 0; transform: scale(0.6); }
+  70% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes filmStamp {
+  0% { opacity: 0; transform: scale(1.9) rotate(-6deg); }
+  65% { opacity: 1; transform: scale(0.94) rotate(-6deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-6deg); }
+}
+@keyframes filmFlip {
+  from { opacity: 0; transform: perspective(600px) rotateX(70deg); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes filmStrike {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes filmGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes filmDim {
+  to { opacity: 0.35; }
+}
+@keyframes filmGlow {
+  to {
+    border-color: #6b5dd3;
+    background-color: rgba(107, 93, 211, 0.14);
+    box-shadow: 0 0 2.4cqw -0.6cqw rgba(107, 93, 211, 0.8);
+  }
+}
+@keyframes filmStroke {
+  to { stroke: #9b8fe0; }
+}
+@keyframes filmFill {
+  to { fill: #6b5dd3; stroke: #6b5dd3; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -172,7 +233,7 @@ kbd {
   }
 }
 
-/* ── Choose your stack: small entrance animation ───────────────── */
+/* ── Tool planner: small entrance animation ───────────────── */
 @keyframes popIn {
   from {
     opacity: 0;

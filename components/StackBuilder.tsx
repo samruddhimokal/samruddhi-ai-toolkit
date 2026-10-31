@@ -27,7 +27,7 @@ import {
   type DataKind,
   type Candidate,
   type Score,
-} from "@/data/chooseStack";
+} from "@/data/toolPlanner";
 import { CopyButton } from "./CopyButton";
 
 // ── State ────────────────────────────────────────────────────────────────
@@ -100,8 +100,6 @@ export function StackBuilder() {
 
   return (
     <div className="space-y-20">
-      <Intro />
-
       <nav aria-label="Steps" className="no-scrollbar -mx-6 flex gap-2 overflow-x-auto px-6">
         {steps.map((st) => (
           <a
@@ -217,19 +215,6 @@ function Reveal({ children, className = "" }: { children: React.ReactNode; class
   );
 }
 
-function useInView<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
-  const [on, setOn] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && setOn(true), { threshold: 0.4 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-  return [ref, on] as const;
-}
-
 function PromptBlock({ title, text }: { title: string; text: string }) {
   return (
     <details className="group rounded border border-dark-border bg-panel">
@@ -277,102 +262,6 @@ function Segmented<T extends string>({
           {o.label}
         </button>
       ))}
-    </div>
-  );
-}
-
-// ── Intro: the subscription pile and the two founders ────────────────────
-
-const pile = [
-  "Chat app", "Note taker", "Deck maker", "Avatar video", "Image tool", "Second chat app",
-  "Research agent", "Writing tool", "App builder", "Automation", "Voice tool", "Scraper",
-];
-const unused = new Set([1, 3, 5, 6, 7, 8, 10]);
-
-function Intro() {
-  const [ref, on] = useInView<HTMLDivElement>();
-  const [day90, setDay90] = useState(false);
-  return (
-    <div className="space-y-12">
-      <div ref={ref} className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
-        <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
-          {pile.map((p, i) => (
-            <div
-              key={p}
-              className={`relative overflow-hidden rounded border px-3 py-3 text-center text-[12.5px] transition-all duration-500 ${
-                on && unused.has(i) ? "border-dark-border text-stone/60" : "border-dark-border bg-panel text-soft-white/85"
-              }`}
-              style={{ transitionDelay: `${on ? 600 + [...unused].indexOf(i) * 180 : 0}ms`, transform: `rotate(${(i % 3) - 1}deg)` }}
-            >
-              {p}
-              {unused.has(i) && (
-                <span
-                  aria-hidden
-                  className="absolute left-2 right-2 top-1/2 h-[2px] origin-left bg-[#d26a6a] transition-transform duration-500"
-                  style={{
-                    transform: `scaleX(${on ? 1 : 0})`,
-                    transitionDelay: `${600 + [...unused].indexOf(i) * 180}ms`,
-                  }}
-                />
-              )}
-            </div>
-          ))}
-        </div>
-        <div>
-          <p className="eyebrow text-dusk">A familiar story</p>
-          <p className="mt-3 text-[16px] leading-relaxed text-soft-white/85">
-            A team of twenty. One year. Twelve AI subscriptions: one after a demo, one after a post, two because a
-            competitor mentioned them, three because someone asked and nobody said no. Seven have not been opened in
-            months. All twelve are still being paid for.
-          </p>
-          <p className="mt-5 font-serif text-[24px] leading-snug tracking-[-0.01em] text-bone">
-            Most teams do not have an AI problem. They have a buying problem.
-          </p>
-        </div>
-      </div>
-
-      <div>
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-[15px] text-soft-white/85">
-            Two founders. Same team size, same budget, same business. The only difference is the order they do things in.
-          </p>
-          <Segmented
-            label="Show day"
-            value={day90 ? "90" : "1"}
-            onChange={(v) => setDay90(v === "90")}
-            options={[
-              { value: "1", label: "Day 1" },
-              { value: "90", label: "Day 90" },
-            ]}
-          />
-        </div>
-        <div className="mt-5 grid gap-4 md:grid-cols-2">
-          {[
-            { who: "Buys tools first", d1: "Excited. Has a budget. Signs up after every good demo.", d90: ["9 subscriptions", "2 in use", "3 doing the same job", "1 holding customer data nobody checked"], bad: true },
-            { who: "Maps tasks first", d1: "Excited. Has a budget. Writes down what the team does every week, then chooses.", d90: ["4 tools", "4 in use", "One page on the wall", "Next review in the calendar"], bad: false },
-          ].map((f) => (
-            <div key={f.who} className={`rounded border p-6 transition-colors duration-500 ${day90 && !f.bad ? "border-amethyst/60 bg-panel" : "border-dark-border bg-panel"}`}>
-              <p className="eyebrow text-stone">{f.who}</p>
-              <div className="relative mt-3 min-h-[120px]">
-                <p className={`absolute inset-0 text-[15px] leading-relaxed text-soft-white/80 transition-opacity duration-500 ${day90 ? "opacity-0" : "opacity-100"}`}>
-                  {f.d1}
-                </p>
-                <ul className={`absolute inset-0 space-y-1.5 transition-opacity duration-500 ${day90 ? "opacity-100" : "opacity-0"}`}>
-                  {f.d90.map((x, i) => (
-                    <li
-                      key={x}
-                      className={`text-[15px] transition-all duration-500 ${f.bad ? "text-[#e29a9a]" : "text-bone"}`}
-                      style={{ transitionDelay: `${day90 ? i * 120 : 0}ms`, transform: day90 ? "none" : "translateY(6px)" }}
-                    >
-                      {f.bad ? "✕" : "✓"} {x}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
